@@ -1,44 +1,50 @@
 import React, {useState} from 'react';
-
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Datasets from "../components/datasets";
 import {Tabs} from "@mui/material";
 import EditView from "../components/editView";
 import Model from "../components/model";
-import SearchForm from "../components/SearchForm";
-import MyModal from "../components/UI/MyModal/MyModal";
-import Button from "@mui/material/Button";
 
-const theme = createTheme({
-    palette: {
-        neutral: {
-            main: '#64748B',
-            contrastText: '#fff',
-        },
-    },
-});
+
+
 function MainPage() {
-    //const [value, setValue] = useState('ТЕКСТ В ИНПУТЕ')
-    const [modal, setModal] = useState(false)
-    const createRequest = () => {
-        setModal(false)
-    }
+    const [visible0, setVisible0] = useState(true)
+    const [visible1, setVisible1] = useState(true)
+    const [visible2, setVisible2] = useState(true)
+    const [visible3, setVisible3] = useState(true)
+    const [opacity0, setOpacity0] = useState(0.5)
+    const [opacity1, setOpacity1] = useState(0.5)
+    const [opacity2, setOpacity2] = useState(0.5)
+    const [opacity3, setOpacity3] = useState(0.5)
+    //let opacity0 = 0.5
+    //console.log('cerf',opacity0)
     return(
         <div className="App">
 
             <div className="side_panel">
-            <Button onClick={() => setModal(true)} variant="contained" color="success" >
-                Отправить запрос
-            </Button>
-            <MyModal visible={modal} setVisible={setModal}>
-                <SearchForm create={createRequest}/>
-            </MyModal>
                 <Datasets/>
                 <Tabs/>
-                <EditView/>
+                <EditView
+                    flag0={visible0} setFlag0={setVisible0}
+                    flag1={visible1} setFlag1={setVisible1}
+                    flag2={visible2} setFlag2={setVisible2}
+                    flag3={visible3} setFlag3={setVisible3}
+                    opac0={opacity0} setOpac0={setOpacity0}
+                    opac1={opacity1} setOpac1={setOpacity1}
+                    opac2={opacity2} setOpac2={setOpacity2}
+                    opac3={opacity3} setOpac3={setOpacity3}
+                />
             </div>
                 <div className="main_action">
-                <Model/>
+                    <Model
+                        flag0={visible0}
+                        flag1={visible1}
+                        flag2={visible2}
+                        flag3={visible3}
+                        opac0={opacity0}
+                        opac1={opacity1}
+                        opac2={opacity2}
+                        opac3={opacity3}
+                    />
                 </div>
         </div>
     )

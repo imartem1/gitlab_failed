@@ -200,7 +200,7 @@ a{
 }
 
 .edit_view{
-    width: 20%;
+
     background-color: #1f1b1f;
     border-radius: 10px;
     margin: 5px;
@@ -224,6 +224,7 @@ a{
 }
 .transparency{
     color: rgb(255, 255, 255);
+    width: auto;
 }
 .colorback{
     color: rgb(255, 255, 255);
